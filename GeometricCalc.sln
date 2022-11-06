@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometricCalc.Lib", "GeometricCalc.Lib\GeometricCalc.Lib.csproj", "{60BBD66A-FC29-4CAE-8B36-864EF1C4CD63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometricCalc.LibTests", "GeometricCalc.LibTests\GeometricCalc.LibTests.csproj", "{8187A0A7-7BED-4BB2-9B83-67EB65C6D575}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{60BBD66A-FC29-4CAE-8B36-864EF1C4CD63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60BBD66A-FC29-4CAE-8B36-864EF1C4CD63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60BBD66A-FC29-4CAE-8B36-864EF1C4CD63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8187A0A7-7BED-4BB2-9B83-67EB65C6D575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8187A0A7-7BED-4BB2-9B83-67EB65C6D575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8187A0A7-7BED-4BB2-9B83-67EB65C6D575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8187A0A7-7BED-4BB2-9B83-67EB65C6D575}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
