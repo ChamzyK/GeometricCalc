@@ -6,21 +6,9 @@ public class Triangle : Figure
     private double _sideB;
     private double _sideC;
 
-    public double SideA
-    {
-        get => _sideA;
-        set => SetSize(ref _sideA, value);
-    }
-    public double SideB
-    {
-        get => _sideB;
-        set => SetSize(ref _sideB, value);
-    }
-    public double SideC
-    {
-        get => _sideC;
-        set => SetSize(ref _sideC, value);
-    }
+    public double SideA { get => _sideA; }
+    public double SideB { get => _sideB; }
+    public double SideC { get => _sideC; }
 
     public double Perimeter => SideA + SideB + SideC;
     public double HalfPerimeter => Perimeter / 2;
@@ -28,20 +16,42 @@ public class Triangle : Figure
     public double PerimeterBC => HalfPerimeter - SideA;
     public double PerimeterAC => HalfPerimeter - SideB;
 
-    public bool IsRight()
-    {
-        var conditionA = SideA * SideA == (SideB * SideB) + (SideC * SideC);
-        var conditionB = SideB * SideB == (SideA * SideA) + (SideC * SideC);
-        var conditionC = SideC * SideC == (SideB * SideB) + (SideA * SideA);
-        return conditionA || conditionB || conditionC;
-    }
-
     public override double Area => Math.Sqrt(HalfPerimeter * PerimeterAB * PerimeterBC * PerimeterAC);
 
-    public Triangle(double sideA, double sideB, double sideC)
+    public Triangle(double sideA = 1, double sideB = 1, double sideC = 1)
     {
-        SideA = sideA;
-        SideB = sideB;
-        SideC = sideC;
+        SetSides(sideA, sideB, sideC);
+    }
+
+    public void SetSides(double sideA, double sideB, double sideC)
+    {
+        if (!IsValid(sideA, sideB, sideC))
+        {
+            throw new ArgumentException("Not valid sides for a triangle");
+        }
+        SetSize(ref _sideA, sideA);
+        SetSize(ref _sideB, sideB);
+        SetSize(ref _sideC, sideC);
+    }
+
+    public bool IsRight()
+    {
+        var isHypotenuseA = IsHypotenuse(SideA, SideB, SideC);
+        var isHypotenuseB = IsHypotenuse(SideB, SideA, SideC);
+        var isHypotenuseC = IsHypotenuse(SideC, SideB, SideA);
+        return isHypotenuseA || isHypotenuseB || isHypotenuseC;
+    }
+
+    private static bool IsHypotenuse(double hypotenuse, double firstLeg, double secondLeg)
+    {
+        return hypotenuse * hypotenuse == (firstLeg * firstLeg) + (secondLeg * secondLeg);
+    }
+
+    public static bool IsValid(double sideA, double sideB, double sideC)
+    {
+        var validSideA = sideA < sideB + sideC;
+        var validSideB = sideB < sideA + sideC;
+        var validSideC = sideC < sideB + sideA;
+        return validSideA && validSideB && validSideC;
     }
 }

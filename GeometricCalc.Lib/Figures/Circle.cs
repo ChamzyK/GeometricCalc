@@ -3,7 +3,6 @@
 public class Circle : Figure
 {
     private double _radius;
-
     public double Radius 
     { 
         get => _radius;
@@ -11,9 +10,4 @@ public class Circle : Figure
     }
 
     public override double Area => Math.PI * Radius * Radius;
-
-    public Circle(double radius)
-    {
-        Radius = radius;
-    }
 }

@@ -8,7 +8,7 @@ public abstract class Figure
     {
         if (newSize < 0)
         {
-            throw new ArgumentException($"Triangle side size cannot be less than zero", nameof(newSize));
+            throw new ArgumentException($"Side size cannot be less than zero", nameof(newSize));
         }
         oldSize = newSize;
     }
